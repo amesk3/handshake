@@ -1,7 +1,6 @@
-// Update with your config settings.
+require('dotenv').config();
 
 module.exports = {
-
   development: {
     client: 'postgresql',
     connection: {
@@ -14,7 +13,7 @@ module.exports = {
     }
   },
 
-  staging: {
+  testing: {
     client: 'postgresql',
     connection: {
       database: 'handshake',
