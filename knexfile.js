@@ -5,10 +5,10 @@ module.exports = {
     client: 'postgresql',
     connection: {
       filename: 'postgres:///handshake',
-      host : '127.0.0.1',
-      user : 'amykim',
-      password : process.env.DB_PASSWORD,
-      database : 'handshake',
+      host: '127.0.0.1',
+      user: 'amykim',
+      password: process.env.DB_PASSWORD,
+      database: 'handshake',
       charset: 'utf8'
     }
   },
@@ -17,7 +17,7 @@ module.exports = {
     client: 'postgresql',
     connection: {
       database: 'handshake',
-      user:     'amykim',
+      user: 'amykim',
       password: ''
     },
     pool: {
@@ -33,7 +33,7 @@ module.exports = {
     client: 'postgresql',
     connection: {
       database: 'my_db',
-      user:     'username',
+      user: 'username',
       password: 'password'
     },
     pool: {
@@ -44,5 +44,4 @@ module.exports = {
       tableName: 'knex_migrations'
     }
   }
-
 };
