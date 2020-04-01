@@ -1,12 +1,17 @@
 {
   "name": "handshake",
   "scripts": {
-    "start": "node src/index.js",
-    "prisma": "prisma"
+    "start": "node server/app.js",
+    "lint": "eslint ."
   },
   "dependencies": {
     "dotenv": "^8.2.0",
+    "eslint-plugin-jest": "^23.8.2",
     "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.6.0",
+    "graphql-date": "^1.0.3",
+    "graphql-relay": "^0.6.0",
     "graphql-yoga": "1.18.3",
     "knex": "^0.20.13",
     "pg": "^7.18.2",
@@ -15,10 +20,10 @@
   "devDependencies": {
     "prisma": "1.34.10"
   },
-  "description": "<h1 align=\"center\"><strong>Boilerplate for a Basic GraphQL Server</strong></h1>",
+  "description": "<h1 align=\"center\"><strong>Handshake</strong></h1>",
   "version": "1.0.0",
-  "main": "knexfile.js",
+  "main": "server/app.js",
   "keywords": [],
-  "author": "",
+  "author": "Amy Kim",
   "license": "ISC"
 }
