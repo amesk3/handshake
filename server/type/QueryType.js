@@ -1,4 +1,4 @@
-const { GraphQLObjectType, GraphQLString } = require('graphql')
+const { GraphQLObjectType, GraphQLString, GraphQLID } = require('graphql')
 const UserType = require('./UserType');
 
 const QueryType = new GraphQLObjectType({
@@ -7,11 +7,9 @@ const QueryType = new GraphQLObjectType({
     user: {
       type: UserType,
       // `args` describes the arguments that the `user` query accepts
-      args: {
-        id: { type: GraphQLString }
-      },
-      resolve: () => {
-        return 'hello';
+      args:{ id: { type: GraphQLID } },
+      resolve(_, args) {
+        return _.find({ id: args.id});
       }
     }
   }
