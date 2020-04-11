@@ -1,42 +1,23 @@
-const express = require( 'express');
+const fs = require("fs");
+const path = require("path");
+const express = require('express');
 const graphqlHTTP = require( 'express-graphql');
 const { buildSchema } = require('graphql')
-// const schema = require( './schema')
+const { postgraphile } = require("postgraphile");
 
-// import bodyParser from 'bodyparser';
-// import cors from 'cors';
-
-// const router = new Router();
-
-const schema = buildSchema(`
-type Query {
-  feed: [Post!]!
-  drafts: [Post!]!
-  post(id: ID!): Post
-}
-
-type Mutation {
-  createDraft(title: String!, content: String): Post
-  deletePost(id: ID!): Post
-  publish(id: ID!): Post
-}
-
-type Post {
-  id: ID!
-  published: Boolean!
-  title: String!
-  content: String!
-}
-
-`);
+const schema = require('./schema')
 
 const app = express();
+
+
 app.use(
-  '/graphql',
-  graphqlHTTP({
-    schema,
-    graphiql: true
+  postgraphile('postgres://localhost:5432/handshake', 'public', {
+    graphiql: true,
+    enableCors: true,
+    schema
   })
 );
+
+
 app.listen(4000);
 console.log('Running a GraphQL API server at http://localhost:4000/graphql');
